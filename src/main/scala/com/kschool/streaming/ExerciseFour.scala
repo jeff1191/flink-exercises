@@ -11,7 +11,7 @@ object ExerciseFour extends App{
   val  env = StreamExecutionEnvironment.getExecutionEnvironment
   val url = "wss://stream.meetup.com/2/rsvps"
 
-  val films:DataStream[MeetupRSVGevent]  = env.addSource(new MeetupStreamingSource(url))
+//  val films:DataStream[MeetupRSVGevent]  = env.addSource(new MeetupStreamingSource(url))
 
   env.execute("Streaming, Exercise Four")
 }
