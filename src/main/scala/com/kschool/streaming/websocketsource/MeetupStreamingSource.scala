@@ -1,18 +1,18 @@
 package com.kschool.streaming.websocketsource
 
 import com.google.gson.Gson
-import com.kschool.streaming.websocketsource.Models.{Event, MeetupRSVGevent}
-import org.apache.flink.streaming.api.functions.source.{RichParallelSourceFunction, SourceFunction}
+import com.kschool.streaming.datatype.Models.{Event, MeetupRSVGevent}
+import org.apache.flink.streaming.api.functions.source.RichSourceFunction
 import org.apache.flink.streaming.api.functions.source.SourceFunction.SourceContext
-import org.codehaus.jackson.map.{DeserializationConfig, ObjectMapper}
 import org.slf4j.LoggerFactory
+import org.apache.flink.streaming.api.scala._
 
 import scalawebsocket.WebSocket
 
 /**
   * Created by Jeff on 05/04/2017.
   */
-class MeetupStreamingSource(uri: String) extends SourceFunction[Event] {
+class MeetupStreamingSource(uri: String) extends RichSourceFunction[MeetupRSVGevent] {
 
   protected[this] var running = true
 
@@ -20,15 +20,15 @@ class MeetupStreamingSource(uri: String) extends SourceFunction[Event] {
     running = false
   }
 
-  override def run(sourceContext: SourceContext[Event]): Unit = {
+  override def run(sourceContext: SourceContext[MeetupRSVGevent]): Unit = {
     while (running) {
       Thread.sleep(5000)
-      WebSocket().open(uri).onTextMessage(msg => sourceContext.collect(toMeetupRSVGevent(msg).event))
+      WebSocket().open(uri).onTextMessage(msg => sourceContext.collect(toMeetupRSVGevent(msg)))
     }
     running = false
   }
 
-  private def toMeetupRSVGevent(msg: String): MeetupRSVGevent ={
+  private def toMeetupRSVGevent(msg: String): MeetupRSVGevent ={// println(msg)
     new Gson().fromJson(msg,classOf[MeetupRSVGevent])
   }
 }

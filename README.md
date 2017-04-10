@@ -27,7 +27,7 @@ case class Film (name: String, year: String, nominations: String, rating:String,
 For these exercises I've used a websocket for the generation 
 of events about meetup (http://meetup.com). The source 
 captures people that are inscribed to events in real-time.
-Moreover the websocket is implemented using a SourceFunction(API Flink)
+Moreover the websocket is implemented using a RichFunction(API Flink)
 
 1. Delete the bad formed objects
 
@@ -39,4 +39,7 @@ Moreover the websocket is implemented using a SourceFunction(API Flink)
 
 5. Calculate Trending topics knowing that is a last minute information and updating the result each 10 seconds. 
 
+### Documentation
+All exercises are implemented using v1.2.0 https://ci.apache.org/projects/flink/flink-docs-release-1.2/
 
+The documentation of Apache Flink is located on the website: http://flink.apache.org
