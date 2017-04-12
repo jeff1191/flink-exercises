@@ -19,7 +19,7 @@ case class Film (name: String, year: String, nominations: String, rating:String,
 
 5. How many winners films include all the words from the title?
 
-6. Which is the standar deviation of the winners film´s rating in XXI century?
+6. Which is the standard deviation of the winners film´s rating in XXI century?
 
 
 
@@ -40,6 +40,6 @@ Moreover the websocket is implemented using a RichFunction(API Flink)
 5. Calculate Trending topics knowing that is a last minute information and updating the result each 10 seconds. 
 
 ### Documentation
-All exercises are implemented using v1.2.0 https://ci.apache.org/projects/flink/flink-docs-release-1.2/
+All exercises have been implemented using v1.2.0 https://ci.apache.org/projects/flink/flink-docs-release-1.2/
 
 The documentation of Apache Flink is located on the website: http://flink.apache.org

@@ -4,7 +4,6 @@ import com.kschool.streaming.websocketsource.MeetupStreamingSource
 import com.kschool.streaming.datatype.Models.MeetupRSVGevent
 import org.apache.flink.api.scala._
 import org.apache.flink.streaming.api.scala.{DataStream, StreamExecutionEnvironment}
-
 /**
   * Created by Jeff on 05/04/2017.
   */

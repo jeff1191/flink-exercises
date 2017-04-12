@@ -6,7 +6,6 @@ import org.apache.flink.api.scala._
 import org.apache.flink.streaming.api.scala.{DataStream, StreamExecutionEnvironment}
 import org.apache.flink.streaming.api.windowing.time.Time
 import org.apache.flink.util.Collector
-
 /**
   * Created by Jeff on 05/04/2017.
   */

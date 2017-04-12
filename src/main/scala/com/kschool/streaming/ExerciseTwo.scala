@@ -1,6 +1,4 @@
 package com.kschool.streaming
-
-
 import com.kschool.streaming.websocketsource.MeetupStreamingSource
 import com.kschool.streaming.datatype.Models.MeetupRSVGevent
 import org.apache.flink.api.scala._
@@ -13,7 +11,6 @@ import org.apache.flink.util.Collector
 object ExerciseTwo  extends App{
     val env = StreamExecutionEnvironment.getExecutionEnvironment
     val url = "wss://stream.meetup.com/2/rsvps"
-
     val films: DataStream[MeetupRSVGevent] = env.addSource(new MeetupStreamingSource(url))
     //  Contar los usuarios que han confirmado a cada evento en los  últimos 10 segundos
    films.filter(x => x.response!= null && x.response.equalsIgnoreCase("YES")).keyBy("event").timeWindow(Time.seconds(10)).

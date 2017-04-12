@@ -1,7 +1,7 @@
 package com.kschool.streaming.websocketsource
 
-import com.google.gson.Gson
-import com.kschool.streaming.datatype.Models.{Event, MeetupRSVGevent}
+import net.liftweb.json._
+import com.kschool.streaming.datatype.Models.{Group, Group_topics, MeetupRSVGevent}
 import org.apache.flink.streaming.api.functions.source.RichSourceFunction
 import org.apache.flink.streaming.api.functions.source.SourceFunction.SourceContext
 import org.slf4j.LoggerFactory
@@ -28,7 +28,11 @@ class MeetupStreamingSource(uri: String) extends RichSourceFunction[MeetupRSVGev
     running = false
   }
 
-  private def toMeetupRSVGevent(msg: String): MeetupRSVGevent ={// println(msg)
-    new Gson().fromJson(msg,classOf[MeetupRSVGevent])
+  private def toMeetupRSVGevent(msg: String): MeetupRSVGevent ={
+  implicit val formats = net.liftweb.json.DefaultFormats
+    implicit val formats2 = Serialization.formats(ShortTypeHints(List(classOf[Group])))
+    JsonParser.parse(msg).extract[MeetupRSVGevent]
   }
+
+
 }

@@ -22,6 +22,5 @@ object ExerciseThree extends App{
     apply((key, window, input, out: Collector[(String, Int)]) => {
       out.collect(s"Event: ${key.getField(3)}, url: ${key.getField(1)} ", input.size )
     }).print()
-
   env.execute("Streaming, Exercise Three")
 }
