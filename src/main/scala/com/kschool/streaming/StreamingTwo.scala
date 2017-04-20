@@ -8,7 +8,7 @@ import org.apache.flink.util.Collector
 /**
   * Created by Jeff on 05/04/2017.
   */
-object ExerciseTwo  extends App{
+object StreamingTwo  extends App{
     val env = StreamExecutionEnvironment.getExecutionEnvironment
     val url = "wss://stream.meetup.com/2/rsvps"
     val films: DataStream[MeetupRSVGevent] = env.addSource(new MeetupStreamingSource(url))

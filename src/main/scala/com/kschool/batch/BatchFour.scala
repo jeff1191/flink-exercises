@@ -1,11 +1,12 @@
 package com.kschool.batch
 
+import com.kschool.batch.datatype.Film
 import org.apache.flink.api.scala.{DataSet, ExecutionEnvironment}
 import org.apache.flink.api.scala._
 /**
   * Created by Jeff on 04/04/2017.
   */
-object ExerciseFour extends App{
+object BatchFour extends App{
   // set up the execution environment
   val env = ExecutionEnvironment.getExecutionEnvironment
   // get input data

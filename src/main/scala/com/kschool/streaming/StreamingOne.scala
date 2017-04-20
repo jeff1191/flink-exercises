@@ -7,7 +7,7 @@ import org.apache.flink.streaming.api.scala.{DataStream, StreamExecutionEnvironm
 /**
   * Created by Jeff on 05/04/2017.
   */
-object ExerciseOne extends App{
+object StreamingOne extends App{
   val env = StreamExecutionEnvironment.createLocalEnvironment(1)
   val url = "wss://stream.meetup.com/2/rsvps"
 

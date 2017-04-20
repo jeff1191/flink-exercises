@@ -1,4 +1,4 @@
-package com.kschool.batch
+package com.kschool.batch.datatype
 
 /**
   * Created by Jeff on 04/04/2017.
